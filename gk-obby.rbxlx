@@ -111,26 +111,26 @@
 		<Item class="Camera" referent="RBX2427DE1C6AB94B78881CB97FE66D4C6B">
 			<Properties>
 				<CoordinateFrame name="CFrame">
-					<X>65.9356155</X>
-					<Y>17.2876091</Y>
-					<Z>33.6667938</Z>
-					<R00>0.285632342</R00>
-					<R01>-0.31515795</R01>
-					<R02>0.905035675</R02>
-					<R10>-7.4505806e-09</R10>
-					<R11>0.94437921</R11>
-					<R12>0.328858435</R12>
-					<R20>-0.958339274</R20>
-					<R21>-0.0939326137</R21>
-					<R22>0.26974526</R22>
+					<X>32.0270691</X>
+					<Y>22.6490955</Y>
+					<Z>60.1832733</Z>
+					<R00>-0.815137506</R00>
+					<R01>0.305247843</R01>
+					<R02>-0.492315531</R02>
+					<R10>-0</R10>
+					<R11>0.849893212</R11>
+					<R12>0.526954889</R12>
+					<R20>0.579267502</R20>
+					<R21>0.429540694</R21>
+					<R22>-0.692779899</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<CoordinateFrame name="Focus">
-					<X>64.1255341</X>
-					<Y>16.6298885</Y>
-					<Z>33.1273003</Z>
+					<X>33.0116997</X>
+					<Y>21.5951862</Y>
+					<Z>61.5688324</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -2037,8 +2037,13 @@ function onActivate(otherPart)
 		character:FindFirstChild('Left Leg').Transparency = 1
 		character:FindFirstChild('Right Arm').Transparency = 1
 		character:FindFirstChild('Right Leg').Transparency = 1
+		character.Head.face.Transparency = 1
 		character.Torso.Transparency = 1
-		
+		for _, obj in pairs(character:GetChildren()) do
+			if obj:isA('Accessory') then
+				obj.Handle.Transparency = 1
+			end
+		end
 		wait(15)
 		character.Head.Transparency = 0
 		character:FindFirstChild('Left Arm').Transparency = 0
@@ -2046,13 +2051,18 @@ function onActivate(otherPart)
 		character:FindFirstChild('Right Arm').Transparency = 0
 		character:FindFirstChild('Right Leg').Transparency = 0
 		character.Torso.Transparency = 0
+		character.Head.face.Transparency = 0
+				for _, obj in pairs(character:GetChildren()) do
+			if obj:isA('Accessory') then
+				obj.Handle.Transparency = 0
+			end
+		end
 	end
 end
 
 
 
 tool.Activated:connect(onActivate)
-
 ]]></ProtectedString>
 				</Properties>
 			</Item>
