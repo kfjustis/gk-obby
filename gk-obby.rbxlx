@@ -111,26 +111,26 @@
 		<Item class="Camera" referent="RBX2427DE1C6AB94B78881CB97FE66D4C6B">
 			<Properties>
 				<CoordinateFrame name="CFrame">
-					<X>19.0588646</X>
-					<Y>26.0031967</Y>
-					<Z>64.4144745</Z>
-					<R00>0.975927055</R00>
-					<R01>0.1281939</R01>
-					<R02>-0.176445112</R02>
-					<R10>-0</R10>
-					<R11>0.809019208</R11>
-					<R12>0.587782264</R12>
-					<R20>0.218097597</R20>
-					<R21>-0.573632598</R21>
-					<R22>0.789543629</R22>
+					<X>65.9356155</X>
+					<Y>17.2876091</Y>
+					<Z>33.6667938</Z>
+					<R00>0.285632342</R00>
+					<R01>-0.31515795</R01>
+					<R02>0.905035675</R02>
+					<R10>-7.4505806e-09</R10>
+					<R11>0.94437921</R11>
+					<R12>0.328858435</R12>
+					<R20>-0.958339274</R20>
+					<R21>-0.0939326137</R21>
+					<R22>0.26974526</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<CoordinateFrame name="Focus">
-					<X>19.4117546</X>
-					<Y>24.8276329</Y>
-					<Z>62.8353882</Z>
+					<X>64.1255341</X>
+					<Y>16.6298885</Y>
+					<Z>33.1273003</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -1278,15 +1278,15 @@ function LSpawn(touch)
 	local hum = touch.Parent:FindFirstChild('Humanoid')
 	local playername = script.Parent.Parent.Parent.PlayerName.Value
 	if hum and hum.Parent.Name == playername then
-		local cash = script.Parent.Parent.Parent.Money.Value
-		if cash >= 20 then
+		local cash = script.Parent.Parent.Parent.Money
+		if cash.Value >= 20 then
 			print("Spawning Lamp")
-			print(cash)
+			print(cash.Value)
 			local clone = part:Clone()
 			clone.Parent = game.Workspace
 			clone:MoveTo(Vector3.new(sPad.Position.x + 10,sPad.Position.y,sPad.Position.z))
-			cash = cash - 20
-			print(cash)
+			cash.Value = cash.Value - 20
+			print(cash.Value)
 			sPad.Parent:Remove()
 		end
 		wait(1)
@@ -2336,7 +2336,7 @@ tool.Activated:connect(onActivate)
 			<string name="TimeOfDay">14:00:00</string>
 		</Properties>
 	</Item>
-	<Item class="GamepadService" referent="RBX81D6CCF0D86F445A96301DE5F76BC203">
+	<Item class="GamepadService" referent="RBX2C19AD1C45E242E08E1B68FE6325DFC0">
 		<Properties>
 			<string name="Name">GamepadService</string>
 		</Properties>
