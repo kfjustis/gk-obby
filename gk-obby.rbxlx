@@ -111,26 +111,26 @@
 		<Item class="Camera" referent="RBX2427DE1C6AB94B78881CB97FE66D4C6B">
 			<Properties>
 				<CoordinateFrame name="CFrame">
-					<X>32.0270691</X>
-					<Y>22.6490955</Y>
-					<Z>60.1832733</Z>
-					<R00>-0.815137506</R00>
-					<R01>0.305247843</R01>
-					<R02>-0.492315531</R02>
+					<X>4.30043316</X>
+					<Y>62.4507713</Y>
+					<Z>74.565834</Z>
+					<R00>0.484652936</R00>
+					<R01>0.659139633</R01>
+					<R02>-0.575018764</R02>
 					<R10>-0</R10>
-					<R11>0.849893212</R11>
-					<R12>0.526954889</R12>
-					<R20>0.579267502</R20>
-					<R21>0.429540694</R21>
-					<R22>-0.692779899</R22>
+					<R11>0.657384813</R11>
+					<R12>0.753555119</R12>
+					<R20>0.874706626</R20>
+					<R21>-0.365212709</R21>
+					<R22>0.318603426</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<CoordinateFrame name="Focus">
-					<X>33.0116997</X>
-					<Y>21.5951862</Y>
-					<Z>61.5688324</Z>
+					<X>5.45047092</X>
+					<Y>60.9436607</Y>
+					<Z>73.928627</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -934,7 +934,7 @@ port.Touched:connect(onTouch)]]></ProtectedString>
 		</Item>
 		<Item class="Folder" referent="RBXB8D83163D8554B0284ED29250BA324E6">
 			<Properties>
-				<string name="Name">Player_Base</string>
+				<string name="Name">Player_Base 2</string>
 			</Properties>
 			<Item class="StringValue" referent="RBX2484440508284EAEB2C879DEA0A28E7F">
 				<Properties>
@@ -999,9 +999,9 @@ port.Touched:connect(onTouch)]]></ProtectedString>
 						<token name="BottomSurfaceInput">0</token>
 						<int name="BrickColor">194</int>
 						<CoordinateFrame name="CFrame">
-							<X>37.5</X>
+							<X>59.5</X>
 							<Y>0.5</Y>
-							<Z>69.5</Z>
+							<Z>-21.5</Z>
 							<R00>1</R00>
 							<R01>0</R01>
 							<R02>0</R02>
@@ -1074,9 +1074,9 @@ port.Touched:connect(onTouch)]]></ProtectedString>
 					<token name="BottomSurfaceInput">0</token>
 					<int name="BrickColor">26</int>
 					<CoordinateFrame name="CFrame">
-						<X>39</X>
+						<X>61</X>
 						<Y>0.100000001</Y>
-						<Z>65</Z>
+						<Z>-26</Z>
 						<R00>1</R00>
 						<R01>0</R01>
 						<R02>0</R02>
@@ -1134,17 +1134,24 @@ port.Touched:connect(onTouch)]]></ProtectedString>
 						<Z>4.02999973</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Script" referent="RBXD15AD07EF89D4D559EE1D6A7DC7094DF">
+				<Item class="Script" referent="RBX2FF81B5F3119400BAD05D8DDB50A81B6">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
 						<string name="Name">Script</string>
-						<string name="ScriptGuid">{8F65EAF9-7BCE-4393-A824-1A879AF006AB}</string>
+						<string name="ScriptGuid">{AF32E26F-1F4C-46E6-BEED-7EDEE784DE7A}</string>
 						<ProtectedString name="Source"><![CDATA[--Made by Graham
 begin = script.Parent
+names = game.Workspace.Player_Names
 
 function activate(part)
 	local hum = part.Parent:FindFirstChild('Humanoid')
+	for _, obj in pairs(game.Workspace.Player_Names:GetChildren()) do
+		if obj.Value == part.Parent.Name then
+			print(part.Parent.Name)
+			return false
+		end
+	end
 	if hum then
 		local value = script.Parent.Parent:FindFirstChild('PlayerName')
 		local moneyclone = game.Workspace:FindFirstChild('Make Money!'):Clone()
@@ -1156,6 +1163,9 @@ function activate(part)
 		lampclone:MoveTo(Vector3.new(begin.Position.x+10,begin.Position.y,begin.Position.z-10))
 		
 		script.Parent.Parent:FindFirstChild('Start Here!'):Remove()
+		local player = Instance.new("StringValue", names)
+		player.Name = part.Parent.Name
+		player.Value = part.Parent.Name
 		begin:Remove()
 	end
 end
@@ -1853,6 +1863,260 @@ butt.ClickDetector.MouseClick:connect(onClick)]]></ProtectedString>
 				</Properties>
 			</Item>
 		</Item>
+		<Item class="Folder" referent="RBXB6018A3D9693431AA9A78053435E10F0">
+			<Properties>
+				<string name="Name">Player_Base 1</string>
+			</Properties>
+			<Item class="StringValue" referent="RBXA41EDE3AEFBF4FFEAAFF4F8C3038DDEE">
+				<Properties>
+					<string name="Name">PlayerName</string>
+					<string name="Value"></string>
+				</Properties>
+			</Item>
+			<Item class="Model" referent="RBX630DB68E40C14C1A9C1CB44281D6233A">
+				<Properties>
+					<CoordinateFrame name="ModelInPrimary">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">Start Here!</string>
+					<Ref name="PrimaryPart">null</Ref>
+				</Properties>
+				<Item class="Humanoid" referent="RBX8C08D6E620414DFF8B9374F86D564BE2">
+					<Properties>
+						<bool name="AutoJumpEnabled">true</bool>
+						<bool name="AutoRotate">true</bool>
+						<token name="DisplayDistanceType">0</token>
+						<float name="HealthDisplayDistance">100</float>
+						<token name="HealthDisplayType">0</token>
+						<float name="Health_XML">100</float>
+						<float name="HipHeight">0</float>
+						<Vector3 name="InternalBodyScale">
+							<X>1</X>
+							<Y>1</Y>
+							<Z>1</Z>
+						</Vector3>
+						<float name="InternalHeadScale">1</float>
+						<float name="JumpPower">50</float>
+						<float name="MaxHealth">0</float>
+						<float name="MaxSlopeAngle">89</float>
+						<string name="Name">Humanoid</string>
+						<float name="NameDisplayDistance">100</float>
+						<token name="NameOcclusion">2</token>
+						<token name="RigType">0</token>
+						<float name="WalkSpeed">16</float>
+					</Properties>
+				</Item>
+				<Item class="Part" referent="RBX8CD13F028D2145EBAE5641696B0EECF0">
+					<Properties>
+						<bool name="Anchored">false</bool>
+						<float name="BackParamA">-0.5</float>
+						<float name="BackParamB">0.5</float>
+						<token name="BackSurface">0</token>
+						<token name="BackSurfaceInput">0</token>
+						<float name="BottomParamA">-0.5</float>
+						<float name="BottomParamB">0.5</float>
+						<token name="BottomSurface">4</token>
+						<token name="BottomSurfaceInput">0</token>
+						<int name="BrickColor">194</int>
+						<CoordinateFrame name="CFrame">
+							<X>37.5</X>
+							<Y>0.5</Y>
+							<Z>69.5</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<bool name="CanCollide">true</bool>
+						<int name="CollisionGroupId">0</int>
+						<Color3uint8 name="Color3uint8Internal">4288914085</Color3uint8>
+						<PhysicalProperties name="CustomPhysicalProperties">
+							<CustomPhysics>false</CustomPhysics>
+						</PhysicalProperties>
+						<float name="Elasticity">0.5</float>
+						<float name="Friction">0.300000012</float>
+						<float name="FrontParamA">-0.5</float>
+						<float name="FrontParamB">0.5</float>
+						<token name="FrontSurface">0</token>
+						<token name="FrontSurfaceInput">0</token>
+						<float name="LeftParamA">-0.5</float>
+						<float name="LeftParamB">0.5</float>
+						<token name="LeftSurface">0</token>
+						<token name="LeftSurfaceInput">0</token>
+						<bool name="Locked">false</bool>
+						<token name="Material">256</token>
+						<string name="Name">Head</string>
+						<float name="Reflectance">0</float>
+						<float name="RightParamA">-0.5</float>
+						<float name="RightParamB">0.5</float>
+						<token name="RightSurface">0</token>
+						<token name="RightSurfaceInput">0</token>
+						<Vector3 name="RotVelocity">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+						</Vector3>
+						<float name="TopParamA">-0.5</float>
+						<float name="TopParamB">0.5</float>
+						<token name="TopSurface">3</token>
+						<token name="TopSurfaceInput">0</token>
+						<float name="Transparency">0</float>
+						<Vector3 name="Velocity">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+						</Vector3>
+						<token name="formFactorRaw">1</token>
+						<token name="shape">1</token>
+						<Vector3 name="size">
+							<X>1</X>
+							<Y>1</Y>
+							<Z>1</Z>
+						</Vector3>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Part" referent="RBX2551FA60F4F246D7B3E1304C6B05929B">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">4</token>
+					<token name="BottomSurfaceInput">0</token>
+					<int name="BrickColor">26</int>
+					<CoordinateFrame name="CFrame">
+						<X>39</X>
+						<Y>0.100000001</Y>
+						<Z>65</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">true</bool>
+					<int name="CollisionGroupId">0</int>
+					<Color3uint8 name="Color3uint8Internal">4288914085</Color3uint8>
+					<PhysicalProperties name="CustomPhysicalProperties">
+						<CustomPhysics>false</CustomPhysics>
+					</PhysicalProperties>
+					<float name="Elasticity">0.5</float>
+					<float name="Friction">0.300000012</float>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<token name="Material">256</token>
+					<string name="Name">begin</string>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">0</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<token name="formFactorRaw">1</token>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>4</X>
+						<Y>0.240000069</Y>
+						<Z>4.02999973</Z>
+					</Vector3>
+				</Properties>
+				<Item class="Script" referent="RBX0D309EEF6E82432B83D211D4ECCCC859">
+					<Properties>
+						<bool name="Disabled">false</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Script</string>
+						<string name="ScriptGuid">{DDB3AC9B-E4A2-4D9D-B6F0-EAC2AA61A901}</string>
+						<ProtectedString name="Source"><![CDATA[--Made by Graham
+begin = script.Parent
+names = game.Workspace.Player_Names
+
+function activate(part)
+	local hum = part.Parent:FindFirstChild('Humanoid')
+	for _, obj in pairs(game.Workspace.Player_Names:GetChildren()) do
+		if obj.Value == part.Parent.Name then
+			print(part.Parent.Name)
+			return false
+		end
+	end
+	if hum then
+		local value = script.Parent.Parent:FindFirstChild('PlayerName')
+		local moneyclone = game.Workspace:FindFirstChild('Make Money!'):Clone()
+		local lampclone = game.Workspace:FindFirstChild('Lamp - $20'):Clone()
+		value.Value = part.Parent.Name
+		moneyclone.Parent = script.Parent.Parent
+		moneyclone:MoveTo(Vector3.new(begin.Position.x+10,begin.Position.y,begin.Position.z+10))
+		lampclone.Parent = script.Parent.Parent
+		lampclone:MoveTo(Vector3.new(begin.Position.x+10,begin.Position.y,begin.Position.z-10))
+		
+		script.Parent.Parent:FindFirstChild('Start Here!'):Remove()
+		local player = Instance.new("StringValue", names)
+		player.Name = part.Parent.Name
+		player.Value = part.Parent.Name
+		begin:Remove()
+	end
+end
+
+begin.Touched:connect(activate)]]></ProtectedString>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="IntValue" referent="RBX3C747705022B4A7DBD746C0A2A7B9CD0">
+				<Properties>
+					<string name="Name">Money</string>
+					<int name="Value">0</int>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBX9F7E2DED2C7C4BAF921524D06D6E67D1">
+			<Properties>
+				<string name="Name">Player_Names</string>
+			</Properties>
+		</Item>
 	</Item>
 	<Item class="SoundService" referent="RBX7DE800CD66FC4EE09E2B21B92CE8BA3E">
 		<Properties>
@@ -2027,6 +2291,7 @@ tool.Unequipped:connect(onUnequip)
 					<string name="ScriptGuid">{E56F0436-22D4-4F40-9D01-058BC41BEBAA}</string>
 					<ProtectedString name="Source"><![CDATA[--Made by Graham
 tool = script.Parent
+length = 10
 
 function onActivate(otherPart)
 	local character = tool.Parent
@@ -2044,7 +2309,7 @@ function onActivate(otherPart)
 				obj.Handle.Transparency = 1
 			end
 		end
-		wait(15)
+		wait(length)
 		character.Head.Transparency = 0
 		character:FindFirstChild('Left Arm').Transparency = 0
 		character:FindFirstChild('Left Leg').Transparency = 0
@@ -2346,7 +2611,7 @@ tool.Activated:connect(onActivate)
 			<string name="TimeOfDay">14:00:00</string>
 		</Properties>
 	</Item>
-	<Item class="GamepadService" referent="RBX2C19AD1C45E242E08E1B68FE6325DFC0">
+	<Item class="GamepadService" referent="RBX29CAE4BDD4F84661A2D6239F4DA4E2BF">
 		<Properties>
 			<string name="Name">GamepadService</string>
 		</Properties>
